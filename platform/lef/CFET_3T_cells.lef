@@ -1,5 +1,5 @@
 # i3dPDK_A16K CFET_3T cell LEF (1x), from BE/CFET/3T/i3dPDK_A16K_0V7_27C_3T.lef:
-# SITE i3d_16A added, coordinates snapped to the 0.5nm manufacturing grid.
+# SITE i3d_16A added, coordinates on the 0.5nm grid (signal pins snapped outward, OBS outward).
 # i3dPDK_A16K v1.0 (CC BY-NC-SA 4.0, Prof. Taigon Song, I3D VLSI Lab, KNU)
 # Read after i3dPDK_A16K_3T_tech.lef.
 VERSION 5.8 ;

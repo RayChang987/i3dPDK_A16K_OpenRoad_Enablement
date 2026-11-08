@@ -1,5 +1,5 @@
 # i3dPDK_A16K FSFET_5T cell LEF (1x), from BE/FSFET/5T/i3dPDK_A16K_0V7_27C_5T.lef:
-# SITE i3d_16A added, coordinates snapped to the 0.5nm manufacturing grid.
+# SITE i3d_16A added, coordinates on the 0.5nm grid (signal pins snapped outward, OBS outward).
 # i3dPDK_A16K v1.0 (CC BY-NC-SA 4.0, Prof. Taigon Song, I3D VLSI Lab, KNU)
 # Read after i3dPDK_A16K_5T_tech.lef.
 VERSION 5.8 ;
@@ -346,7 +346,7 @@ MACRO AOI221_X1
     USE SIGNAL ;
     PORT
       LAYER M1 ;
-        RECT 0.0990 0.0030 0.1110 0.0150 ;
+        RECT 0.0990 0.0030 0.1110 0.0155 ;
     END
   END A
   PIN C1

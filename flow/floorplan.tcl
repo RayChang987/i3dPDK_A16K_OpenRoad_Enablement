@@ -90,21 +90,29 @@ make_tracks
 # access, but under ROUTE_UNIDIR (RIGHTWAYONGRIDONLY) 74 of gcd's pins had no
 # access point at all (DRT-0073). The M2 pitch is below M2's minimum pitch
 # (0.024), so neighbouring M2 tracks cannot both carry wires.
-if {[design_param PIN_ALIGNED_TRACKS $route_unidir]} {
+# PIN_ALIGNED_TRACKS=m1: only the M1 tracks move (site centres, a legal 42nm
+# pitch); M2 keeps the LEF tracks. For libraries whose M1 pins are vertical
+# bars taller than the M2 pitch (NSFET_5T), every pin still has an M2 track,
+# and global routing sees the real M2 capacity.
+set pin_aligned [design_param PIN_ALIGNED_TRACKS $route_unidir]
+if {$pin_aligned ne "0"} {
     set core  [$block getCoreArea]
     set cx    [um [$core xMin]]; set cy [um [$core yMin]]
     set m0    [[ord::get_db_tech] findLayer M0]
     set m0_p  [um [$m0 getPitch]]
     set m0_o  [um [$m0 getOffset]]
     set m1_p  [um [[[ord::get_db_tech] findLayer M1] getPitch]]
+    set relayers [expr {$pin_aligned eq "m1" ? {M1} : {M1 M2}}]
     foreach tg [$block getTrackGrids] {
-        if {[[$tg getTechLayer] getName] in {M1 M2}} { odb::dbTrackGrid_destroy $tg }
+        if {[[$tg getTechLayer] getName] in $relayers} { odb::dbTrackGrid_destroy $tg }
     }
     make_tracks M1 -x_offset [expr {fmod($cx + $site_w / 2, $site_w)}] -x_pitch $site_w \
                    -y_offset [expr {$m1_p / 2}] -y_pitch $m1_p
-    make_tracks M2 -x_offset [expr {$m1_p / 2}] -x_pitch $m1_p \
-                   -y_offset [expr {fmod($cy + $m0_o, $m0_p)}] -y_pitch $m0_p
-    puts "pin-aligned tracks: M1 pitch $site_w, M2 pitch $m0_p"
+    if {$pin_aligned ne "m1"} {
+        make_tracks M2 -x_offset [expr {$m1_p / 2}] -x_pitch $m1_p \
+                       -y_offset [expr {fmod($cy + $m0_o, $m0_p)}] -y_pitch $m0_p
+    }
+    puts "pin-aligned tracks ($pin_aligned): M1 pitch $site_w[expr {$pin_aligned eq "m1" ? ", M2 LEF tracks" : ", M2 pitch $m0_p"}]"
 }
 
 # Pins at least IO_PIN_TRACKS tracks apart, kept off the corners.

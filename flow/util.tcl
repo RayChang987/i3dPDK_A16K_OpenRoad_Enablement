@@ -133,7 +133,7 @@ proc drc_counts {file} {
     while {[gets $fh line] >= 0} {
         if {[regexp {violation type:\s*(.+)$} $line -> type]} {
             set type [string trim $type]
-        } elseif {[regexp {layer\s+(\S+)} $line -> layer] && $type ne ""} {
+        } elseif {[regexp -nocase {layer\s+(\S+)} $line -> layer] && $type ne ""} {
             dict incr counts "$type@$layer"
             set type ""
         }

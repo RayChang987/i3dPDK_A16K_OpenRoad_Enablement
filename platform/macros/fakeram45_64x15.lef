@@ -1,0 +1,487 @@
+# Abstract 64x15 single-port SRAM (pin interface of OpenROAD-flow-scripts' bsg_fakeram).
+# Geometry is an assumption for a 16A-class node, not PDK data.
+VERSION 5.8 ;
+BUSBITCHARS "[]" ;
+DIVIDERCHAR "/" ;
+
+MACRO fakeram45_64x15
+  CLASS BLOCK ;
+  FOREIGN fakeram45_64x15 0 0 ;
+  ORIGIN 0 0 ;
+  SIZE 2.7300 BY 4.3200 ;
+  SYMMETRY X Y R90 ;
+  PIN clk
+    DIRECTION INPUT ;
+    USE CLOCK ;
+    PORT
+      LAYER M4 ;
+        RECT 0 0.6150 0.2400 0.6450 ;
+    END
+  END clk
+  PIN ce_in
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 0.6750 0.2400 0.7050 ;
+    END
+  END ce_in
+  PIN we_in
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 0.7350 0.2400 0.7650 ;
+    END
+  END we_in
+  PIN addr_in[0]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 0.7950 0.2400 0.8250 ;
+    END
+  END addr_in[0]
+  PIN addr_in[1]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 0.8550 0.2400 0.8850 ;
+    END
+  END addr_in[1]
+  PIN addr_in[2]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 0.9150 0.2400 0.9450 ;
+    END
+  END addr_in[2]
+  PIN addr_in[3]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 0.9750 0.2400 1.0050 ;
+    END
+  END addr_in[3]
+  PIN addr_in[4]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.0350 0.2400 1.0650 ;
+    END
+  END addr_in[4]
+  PIN addr_in[5]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.0950 0.2400 1.1250 ;
+    END
+  END addr_in[5]
+  PIN wd_in[0]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.1550 0.2400 1.1850 ;
+    END
+  END wd_in[0]
+  PIN wd_in[1]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.2150 0.2400 1.2450 ;
+    END
+  END wd_in[1]
+  PIN wd_in[2]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.2750 0.2400 1.3050 ;
+    END
+  END wd_in[2]
+  PIN wd_in[3]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.3350 0.2400 1.3650 ;
+    END
+  END wd_in[3]
+  PIN wd_in[4]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.3950 0.2400 1.4250 ;
+    END
+  END wd_in[4]
+  PIN wd_in[5]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.4550 0.2400 1.4850 ;
+    END
+  END wd_in[5]
+  PIN wd_in[6]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.5150 0.2400 1.5450 ;
+    END
+  END wd_in[6]
+  PIN wd_in[7]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.5750 0.2400 1.6050 ;
+    END
+  END wd_in[7]
+  PIN wd_in[8]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.6350 0.2400 1.6650 ;
+    END
+  END wd_in[8]
+  PIN wd_in[9]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.6950 0.2400 1.7250 ;
+    END
+  END wd_in[9]
+  PIN wd_in[10]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.7550 0.2400 1.7850 ;
+    END
+  END wd_in[10]
+  PIN wd_in[11]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.8150 0.2400 1.8450 ;
+    END
+  END wd_in[11]
+  PIN wd_in[12]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.8750 0.2400 1.9050 ;
+    END
+  END wd_in[12]
+  PIN wd_in[13]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.9350 0.2400 1.9650 ;
+    END
+  END wd_in[13]
+  PIN wd_in[14]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 1.9950 0.2400 2.0250 ;
+    END
+  END wd_in[14]
+  PIN w_mask_in[0]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.0550 0.2400 2.0850 ;
+    END
+  END w_mask_in[0]
+  PIN w_mask_in[1]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.1150 0.2400 2.1450 ;
+    END
+  END w_mask_in[1]
+  PIN w_mask_in[2]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.1750 0.2400 2.2050 ;
+    END
+  END w_mask_in[2]
+  PIN w_mask_in[3]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.2350 0.2400 2.2650 ;
+    END
+  END w_mask_in[3]
+  PIN w_mask_in[4]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.2950 0.2400 2.3250 ;
+    END
+  END w_mask_in[4]
+  PIN w_mask_in[5]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.3550 0.2400 2.3850 ;
+    END
+  END w_mask_in[5]
+  PIN w_mask_in[6]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.4150 0.2400 2.4450 ;
+    END
+  END w_mask_in[6]
+  PIN w_mask_in[7]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.4750 0.2400 2.5050 ;
+    END
+  END w_mask_in[7]
+  PIN w_mask_in[8]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.5350 0.2400 2.5650 ;
+    END
+  END w_mask_in[8]
+  PIN w_mask_in[9]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.5950 0.2400 2.6250 ;
+    END
+  END w_mask_in[9]
+  PIN w_mask_in[10]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.6550 0.2400 2.6850 ;
+    END
+  END w_mask_in[10]
+  PIN w_mask_in[11]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.7150 0.2400 2.7450 ;
+    END
+  END w_mask_in[11]
+  PIN w_mask_in[12]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.7750 0.2400 2.8050 ;
+    END
+  END w_mask_in[12]
+  PIN w_mask_in[13]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.8350 0.2400 2.8650 ;
+    END
+  END w_mask_in[13]
+  PIN w_mask_in[14]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.8950 0.2400 2.9250 ;
+    END
+  END w_mask_in[14]
+  PIN rd_out[0]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 2.9550 0.2400 2.9850 ;
+    END
+  END rd_out[0]
+  PIN rd_out[1]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.0150 0.2400 3.0450 ;
+    END
+  END rd_out[1]
+  PIN rd_out[2]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.0750 0.2400 3.1050 ;
+    END
+  END rd_out[2]
+  PIN rd_out[3]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.1350 0.2400 3.1650 ;
+    END
+  END rd_out[3]
+  PIN rd_out[4]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.1950 0.2400 3.2250 ;
+    END
+  END rd_out[4]
+  PIN rd_out[5]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.2550 0.2400 3.2850 ;
+    END
+  END rd_out[5]
+  PIN rd_out[6]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.3150 0.2400 3.3450 ;
+    END
+  END rd_out[6]
+  PIN rd_out[7]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.3750 0.2400 3.4050 ;
+    END
+  END rd_out[7]
+  PIN rd_out[8]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.4350 0.2400 3.4650 ;
+    END
+  END rd_out[8]
+  PIN rd_out[9]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.4950 0.2400 3.5250 ;
+    END
+  END rd_out[9]
+  PIN rd_out[10]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.5550 0.2400 3.5850 ;
+    END
+  END rd_out[10]
+  PIN rd_out[11]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.6150 0.2400 3.6450 ;
+    END
+  END rd_out[11]
+  PIN rd_out[12]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.6750 0.2400 3.7050 ;
+    END
+  END rd_out[12]
+  PIN rd_out[13]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.7350 0.2400 3.7650 ;
+    END
+  END rd_out[13]
+  PIN rd_out[14]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M4 ;
+        RECT 0 3.7950 0.2400 3.8250 ;
+    END
+  END rd_out[14]
+  PIN VDD
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER M5 ;
+        RECT 0.9200 0 1.0400 4.3200 ;
+    END
+  END VDD
+  PIN VSS
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER M5 ;
+        RECT 1.9200 0 2.0400 4.3200 ;
+    END
+  END VSS
+  OBS
+    LAYER BPR ;
+      RECT 0 0 2.7300 4.3200 ;
+    LAYER M0 ;
+      RECT 0 0 2.7300 4.3200 ;
+    LAYER M1 ;
+      RECT 0 0 2.7300 4.3200 ;
+    LAYER M2 ;
+      RECT 0 0 2.7300 4.3200 ;
+    LAYER M3 ;
+      RECT 0 0 2.7300 4.3200 ;
+    LAYER BPR2TOP ;
+      RECT 0 0 2.7300 4.3200 ;
+    LAYER VIA0 ;
+      RECT 0 0 2.7300 4.3200 ;
+    LAYER VIA1 ;
+      RECT 0 0 2.7300 4.3200 ;
+    LAYER VIA2 ;
+      RECT 0 0 2.7300 4.3200 ;
+    LAYER VIA3 ;
+      RECT 0 0 2.7300 4.3200 ;
+    LAYER M4 ;
+      RECT 0.3000 0 2.7300 4.3200 ;
+  END
+END fakeram45_64x15
+
+END LIBRARY

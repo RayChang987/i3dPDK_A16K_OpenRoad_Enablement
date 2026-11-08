@@ -1,0 +1,366 @@
+{
+ "setup": "CFET_3T, bidirectional M1-M3 (LEF tracks); commercial router with auto-stop off (OC), TritonRoute up to 64 iterations; runs that did not converge were stopped (count after the last iteration)",
+ "designs": [
+  {
+   "name": "gcd",
+   "label": "gcd",
+   "util": 0.6,
+   "cells": 264,
+   "sublabel": "264 cells \u00b7 util 0.6",
+   "runs": {
+    "CC": {
+     "drc": 0,
+     "wl_um": 305.9,
+     "converged": true
+    },
+    "CT": {
+     "drc": 0,
+     "wl_um": 303.2,
+     "iters": 6,
+     "trace": [
+      195,
+      116,
+      103,
+      87,
+      10,
+      0
+     ],
+     "converged": true,
+     "cells": 264,
+     "tag": "xinv",
+     "drc_commercial_check": 0
+    },
+    "OC": {
+     "drc": 3,
+     "wl_um": 374.0,
+     "converged": null
+    },
+    "OC_default": {
+     "drc": 3
+    },
+    "OT": {
+     "drc": 0,
+     "wl_um": 369.8,
+     "iters": 41,
+     "trace": [
+      386,
+      239,
+      266,
+      137,
+      100,
+      54,
+      38,
+      38,
+      20,
+      15,
+      15,
+      9,
+      7,
+      7,
+      7,
+      7,
+      5,
+      5,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "converged": true,
+     "cells": 272,
+     "tag": "xcmp",
+     "drc_commercial_check": 0
+    }
+   }
+  },
+  {
+   "name": "serv",
+   "label": "serv",
+   "util": 0.6,
+   "cells": 918,
+   "sublabel": "918 cells \u00b7 util 0.6",
+   "runs": {
+    "CC": {
+     "drc": 0,
+     "wl_um": 1308.3,
+     "converged": true
+    },
+    "CT": {
+     "drc": 0,
+     "wl_um": 1249.4,
+     "iters": 37,
+     "trace": [
+      829,
+      753,
+      760,
+      461,
+      266,
+      181,
+      90,
+      77,
+      54,
+      53,
+      51,
+      39,
+      37,
+      36,
+      36,
+      36,
+      15,
+      25,
+      12,
+      9,
+      8,
+      8,
+      6,
+      6,
+      5,
+      5,
+      5,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      1,
+      0
+     ],
+     "converged": true,
+     "cells": 918,
+     "tag": "xinv",
+     "drc_commercial_check": 0
+    },
+    "OC": {
+     "drc": 7,
+     "wl_um": 1736.3,
+     "converged": null
+    },
+    "OC_default": {
+     "drc": 7
+    },
+    "OT": {
+     "drc": 30,
+     "iters": 39,
+     "trace": [
+      1927,
+      2131,
+      2023,
+      1654,
+      1249,
+      1107,
+      905,
+      893,
+      891,
+      878,
+      672,
+      585,
+      463,
+      418,
+      334,
+      271,
+      228,
+      1144,
+      425,
+      307,
+      224,
+      205,
+      190,
+      190,
+      146,
+      314,
+      163,
+      146,
+      87,
+      83,
+      81,
+      80,
+      57,
+      94,
+      42,
+      34,
+      30,
+      30,
+      30
+     ],
+     "converged": false,
+     "running": false,
+     "tag": "xcmp"
+    }
+   }
+  },
+  {
+   "name": "aes",
+   "label": "aes",
+   "util": 0.5,
+   "cells": 10752,
+   "sublabel": "10,752 cells \u00b7 util 0.5",
+   "runs": {
+    "CC": {
+     "drc": 2,
+     "wl_um": 23188.1,
+     "converged": true
+    },
+    "CT": {
+     "drc": 48647,
+     "iters": 3,
+     "trace": [
+      40173,
+      46574,
+      48647
+     ],
+     "converged": false,
+     "running": false,
+     "tag": "xbi"
+    },
+    "OC": {
+     "drc": 36,
+     "wl_um": 26208.8,
+     "converged": null
+    },
+    "OC_default": {
+     "drc": 12171
+    },
+    "OT": {
+     "drc": 81084,
+     "iters": 3,
+     "trace": [
+      56370,
+      77708,
+      81084
+     ],
+     "converged": false,
+     "running": false,
+     "tag": "xbo"
+    }
+   }
+  },
+  {
+   "name": "riscv32i",
+   "label": "riscv32i",
+   "util": 0.6,
+   "cells": 8158,
+   "sublabel": "8,158 cells \u00b7 util 0.6",
+   "runs": {
+    "CC": {
+     "drc": 2,
+     "wl_um": 21436.9,
+     "converged": true
+    },
+    "CT": {
+     "drc": 1984,
+     "iters": 10,
+     "trace": [
+      13457,
+      14246,
+      13909,
+      7610,
+      4614,
+      3593,
+      2944,
+      2395,
+      2219,
+      1984
+     ],
+     "converged": false,
+     "running": false,
+     "tag": "xbi"
+    },
+    "OC": {
+     "drc": 100,
+     "wl_um": 23070.0,
+     "converged": null
+    },
+    "OC_default": {
+     "drc": 100
+    },
+    "OT": {
+     "drc": 33536,
+     "iters": 3,
+     "trace": [
+      27444,
+      34290,
+      33536
+     ],
+     "converged": false,
+     "running": false,
+     "tag": "xbo"
+    }
+   }
+  },
+  {
+   "name": "dynamic_node",
+   "label": "dynamic_node",
+   "util": 0.6,
+   "cells": 10972,
+   "sublabel": "10,972 cells \u00b7 util 0.6",
+   "runs": {
+    "CC": {
+     "drc": 0,
+     "wl_um": 25119.6,
+     "converged": true
+    },
+    "CT": {
+     "drc": 1549,
+     "iters": 10,
+     "trace": [
+      13395,
+      12591,
+      12501,
+      7035,
+      4132,
+      2920,
+      2457,
+      2161,
+      1833,
+      1549
+     ],
+     "converged": false,
+     "running": false,
+     "tag": "xbi"
+    },
+    "OC": {
+     "drc": 499,
+     "wl_um": 31589.6,
+     "converged": null
+    },
+    "OC_default": {
+     "drc": 4763
+    },
+    "OT": {
+     "drc": 44166,
+     "iters": 3,
+     "trace": [
+      32996,
+      41275,
+      44166
+     ],
+     "converged": false,
+     "running": false,
+     "tag": "xbo"
+    }
+   }
+  }
+ ]
+}

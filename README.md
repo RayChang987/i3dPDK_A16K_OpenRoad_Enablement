@@ -36,7 +36,7 @@ This repository is a scriptable **OpenROAD** flow for i3dPDK_A16K:
 - **Hard macros** (abstract SRAMs) placed by RTL-MP, with their own power grid.
 - **12 benchmark designs** included as netlists: gcd, SERV, AES, RISC-V, Rocket, SweRV, BlackParrot, …
 - **A [technology roadmap](#technology-roadmap)** from GF 180 nm to GT2N 2 nm, and a **[comparison with a commercial tool](#openroad-vs-a-commercial-tool)** on the same inputs.
-- **No license, no GUI.** Everything runs in the OpenROAD docker image, layout snapshots included.
+- **No commercial tool license, no GUI.** Everything runs in the OpenROAD docker image, layout snapshots included.
 
 ### Where it stands
 
@@ -431,6 +431,7 @@ estimates with the placeholder R/C.
 <summary><b>Files and what they do</b></summary>
 
 ```
+├── LICENSE                 CC BY-NC-SA 4.0 (the whole repository)
 ├── flow/
 │   ├── flow.tcl            main flow (read → floorplan → PDN → place → CTS → route → reports)
 │   ├── floorplan.tcl       core sizing, IO pins, macro placement, row cutting
@@ -467,11 +468,25 @@ estimates with the placeholder R/C.
 
 </details>
 
+## License
+
+This repository is licensed under
+[**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/) (see [LICENSE](LICENSE)),
+the same license as i3dPDK_A16K, from which the files in `platform/` are derived.
+Like the PDK, it is for education and academic research only: not for commercial use,
+and not for fabrication. If you use it, please also cite the PDK:
+
+> Taigon Song, "i3dPDK_A16K_v1.0", I3DVLSI Laboratory, Kyungpook National Univ., 2026.
+> Available at: https://github.com/i3dknu1/i3dPDK_A16K
+
+The benchmark netlists in `designs/` are synthesized from RTL in OpenROAD-flow-scripts;
+the original designs keep their own licenses.
+
 ## Acknowledgements
 
 - [**i3dPDK_A16K v1.0**](https://github.com/i3dknu1/i3dPDK_A16K), Prof. Taigon Song,
-  I3D VLSI Lab, Kyungpook National University (CC BY-NC-SA 4.0). The files in `platform/` are derived from it and carry the same
-  license; they are not part of the original PDK.
+  I3D VLSI Lab, Kyungpook National University (CC BY-NC-SA 4.0). The files in `platform/` are derived from it; they are not part
+  of the original PDK.
 - [**OpenROAD**](https://github.com/The-OpenROAD-Project/OpenROAD) and
   [**OpenROAD-flow-scripts**](https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts),
   for the tools and the benchmark designs.

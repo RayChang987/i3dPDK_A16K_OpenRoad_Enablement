@@ -1,16 +1,16 @@
 <div align="center">
 
-# i3dPDK_A16K × OpenROAD
+# OpenROAD for i3dPDK_A16K: open-source RTL-to-layout flow for A16 CFET, forksheet and nanosheet
 
-**An open-source RTL-to-layout flow for a 16 Å (A16) predictive PDK:<br/>
-nanosheet, forksheet and CFET standard cells, buried power rails, 12 nm pins.**
+**An open-source place-and-route flow (OpenROAD, Yosys, TritonRoute) for the 16 Å (A16, 1.6 nm-class) predictive PDK
+i3dPDK_A16K: nanosheet (NSFET), forksheet (FSFET) and complementary-FET (CFET) standard cells, buried power rails, 12 nm pins.**
 
 [![OpenROAD](https://img.shields.io/badge/OpenROAD-ORFS%2026Q4--368-1f6feb)](https://hub.docker.com/r/openroad/orfs)
 [![PDK](https://img.shields.io/badge/PDK-i3dPDK__A16K%20v1.0-8250df)](https://github.com/i3dknu1/i3dPDK_A16K)
 [![Node](https://img.shields.io/badge/node-A16%20(16%C3%85)-d1242f)](#the-platform)
 [![Libraries](https://img.shields.io/badge/libraries-NSFET%20·%20FSFET%20·%20CFET-2da44e)](#the-platform)
 
-<img src="docs/images/serv_route.png" width="720" alt="SERV RISC-V core, fully routed on the CFET 3-track library"/>
+<img src="docs/images/serv_route.png" width="720" alt="OpenROAD place-and-route result: SERV RISC-V core fully routed on the A16 CFET 3-track standard-cell library, 0 DRC"/>
 
 <sub><b>SERV</b> (bit-serial RISC-V), placed and routed on the <b>CFET 3-track</b> library: 7.1 × 7.1 µm, 1,203 cells, <b>0 DRC</b>, clean power grid.</sub>
 
@@ -27,7 +27,9 @@ design when the transistors stack vertically*. [i3dPDK_A16K](https://github.com/
 libraries at the A16 node, from 5-track nanosheet down to 3-track CFET. Until now,
 taking a design from RTL to a routed layout on them needed a commercial tool.
 
-This repository is a scriptable **OpenROAD** flow for i3dPDK_A16K:
+This repository (**openroad-i3dpdk-a16k**, formerly i3dPDK_A16K_OpenRoad_Enablement) is a scriptable, open-source **OpenROAD** physical-design flow for i3dPDK_A16K, a CFET / buried-power-rail PDK. It covers
+synthesis (Yosys), floorplanning, power-grid generation, placement, clock-tree synthesis, global and detailed
+routing (TritonRoute), and timing, power, DRC and power-grid reports:
 
 - **One command** from a Yosys netlist to a routed DEF, with timing, power, DRC and power-grid reports.
 - **All five libraries**: `NSFET_5T`, `FSFET_5T`, `FSFET_4T`, `CFET_4T`, `CFET_3T`.
@@ -60,7 +62,7 @@ pinned in [`scripts/docker_env.sh`](scripts/docker_env.sh) and pulled on first u
 ```bash
 git clone https://github.com/i3dknu1/i3dPDK_A16K
 cd i3dPDK_A16K
-git clone https://github.com/RayChang987/i3dPDK_A16K_OpenRoad_Enablement a16k_openroad_enablement
+git clone https://github.com/RayChang987/openroad-i3dpdk-a16k a16k_openroad_enablement
 cd a16k_openroad_enablement
 
 scripts/run_or.sh gcd CFET_3T                              # ~8 min on 8 threads, ends with 0 DRC
@@ -424,6 +426,32 @@ As on `CFET_3T`, aes, riscv32i and dynamic_node don't converge in detailed routi
 
 There is no OpenRCX extraction deck for this PDK, so final timing uses global-route
 estimates with the placeholder R/C.
+
+## FAQ
+
+**Can OpenROAD place and route CFET or forksheet standard cells?**
+Yes, with limits. With this flow OpenROAD places and routes designs on the CFET (3T, 4T), forksheet (4T, 5T)
+and nanosheet (5T) libraries of i3dPDK_A16K. Small designs (gcd, SERV) reach 0 DRC; larger ones (aes, riscv32i)
+reach global routing but don't converge in detailed routing yet. See [Where it stands](#where-it-stands).
+
+**How do you handle buried power rails (BPR) in OpenROAD?**
+pdngen builds BPR follow-pin rails, ties them to an M8/M9 ring and M3 stripe pairs through via stacks, and
+`check_power_grid` verifies the result. See [Power delivery](#power-delivery).
+
+**Is there an open-source PDK or flow for sub-2 nm / A16 / 1.6 nm design?**
+i3dPDK_A16K is a predictive, academic PDK (not for fabrication). This repository is the open flow for it.
+For other nodes, see the [technology roadmap](#technology-roadmap) (GF 180 nm to GT2N 2 nm).
+
+**How does OpenROAD compare with a commercial P&R tool on this PDK?**
+Same netlists, LEFs and power grid, each tool routing the other's placement:
+[OpenROAD vs. a commercial tool](#openroad-vs-a-commercial-tool).
+
+**Why do 12 nm pins make routing hard?**
+A pin is half an M2 pitch tall, so pin access dominates detailed routing: [Open problems](#open-problems).
+
+<sub>Keywords: OpenROAD, OpenROAD-flow-scripts (ORFS), Yosys, TritonRoute, i3dPDK_A16K, A16, 16 Å, 1.6 nm,
+CFET, complementary FET, forksheet, nanosheet, GAA, buried power rail (BPR), backside power, standard cells,
+RTL-to-layout, physical design, place and route, predictive PDK, EDA, open-source EDA.</sub>
 
 ## Repository layout
 
